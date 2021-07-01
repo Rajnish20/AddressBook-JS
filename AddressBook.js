@@ -210,12 +210,21 @@ function deleteContact(){
     }
 }
 
+function count(currentCount){
+    return currentCount += 1;
+}
+function getCount(){
+   console.log(addressBookArr.reduce(count, 0));
+}
+
+
 let options;
 do{
     console.log("Enter 1 to add Contact ");
     console.log("Enter 2 to Print AddressBook ");
     console.log("Enter 3 to update contc");
     console.log("Enter 4 to delete contact");
+    console.log("Enter 5 to get number of contacts");
     console.log("Enter 13 to exit");
     options = Number(prompt('Enter option '));
     switch(options){
@@ -230,6 +239,9 @@ do{
             break;
         case 4:
             deleteContact();
+            break;
+        case 5:
+            getCount();
             break;
         default:
             break; 
