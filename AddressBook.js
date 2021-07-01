@@ -116,3 +116,43 @@ class AddressBook {
         "\nemail : " +this.email;
     }
 }
+
+let addressBookArr = new Array();
+let addressbook = new AddressBook("Shalini","Sharma","New Delhi","Delhi","110041","91 7828388091","shalini.01@gmail.com");
+addressBookArr.push(addressbook);
+const prompt = require('prompt-sync')();
+
+function addContact(){
+    const firstname = prompt('Enter FirstName ');
+    let existinguser = addressBookArr.filter(contact => contact.firstName == firstname);
+    if(existinguser.length != 0){
+        console.log("Contact Already Exist");  
+        return; 
+    }
+    const lastname = prompt('Enter LastName ');
+    const city = prompt('Enter City ');
+    const state = prompt('Enter State ');
+    const zip = prompt('Enter Zip ');
+    const phoneNumber = prompt('Enter Mobile No ');
+    const email = prompt('Enter Email ');
+    let contact = new AddressBook(firstname,lastname,city,state,zip,phoneNumber,email);
+    addressBookArr.push(contact);
+}
+
+let options;
+do{
+    console.log("Enter 1 to add Contact ");
+    console.log("Enter 2 to Print AddressBook ");
+    console.log("Enter 13 to exit");
+    options = Number(prompt('Enter option '));
+    switch(options){
+        case 1:
+            addContact();
+            break;
+        case 2:
+            printAddressBook();
+            break;
+        default:
+            break; 
+    }
+}while(options != 13)
