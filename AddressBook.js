@@ -226,6 +226,14 @@ function getPersonInState(){
     const state = prompt('Enter State ');
     console.log(addressBookArr.filter(contact => contact.state == state));
 }
+
+function getCountByCity(){
+    const city = prompt('Enter city ');
+    console.log(addressBookArr.filter(contact => contact.city == city).reduce(count,0));
+}
+
+
+
 let options;
 do{
     console.log("Enter 1 to add Contact ");
@@ -235,6 +243,7 @@ do{
     console.log("Enter 5 to get number of contacts");
     console.log("Enter 6 to see contacts in particular city");
     console.log("Enter 7 to see contacts in particular state");
+    console.log("Enter 8 to get number of contacts in particular city");
     console.log("Enter 13 to exit");
     options = Number(prompt('Enter option '));
     switch(options){
@@ -258,6 +267,9 @@ do{
             break;
         case 7:
             getPersonInState();
+            break;
+        case 8:
+            getCountByCity();
             break;
         default:
             break; 
