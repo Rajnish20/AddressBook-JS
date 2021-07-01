@@ -139,10 +139,66 @@ function addContact(){
     addressBookArr.push(contact);
 }
 
+
+function updateContact(){
+    const firstname = prompt('Enter FirstName ');
+    let status = false;
+    addressBookArr.forEach(contact => {
+        if(contact.firstName == firstname){
+            status = true;
+            console.log('Enter 1 to update FirstName ');
+            console.log('Enter 2 to update LastName ');
+            console.log('Enter 3 to update City ');
+            console.log('Enter 4 to update State ');
+            console.log('Enter 5 to update Zip ');
+            console.log('Enter 6 to update Phone No ');
+            console.log('Enter 7 to update Email ');
+            const choice = Number(prompt('Enter Choice '));
+            switch(choice){
+                case 1:
+                    const newFirstName = prompt('Enter new First Name ');
+                    contact.firstName = newFirstName;
+                    break;
+                case 2:
+                    const newLastName = prompt('Enter new Last Name ');
+                    contact.lastName = newLastName;
+                    break;
+                case 3:
+                    const newCity = String(prompt('Enter New City '));
+                    contact.city = newCity;
+                    break;
+                case 4:
+                    const newState = prompt('Enter New State ');
+                    contact.state = newState;
+                    break;
+                case 5:
+                    const newZip = prompt('Enter New PinCode ');
+                    contact.zip = newZip;
+                    break;
+                case 6:
+                    const newPhoneNo = prompt('Enter New mobile No ');
+                    contact.phoneNumber = newPhoneNo;
+                    break;
+                case 7:
+                    const newEmail = prompt('Enter new Email ');
+                    contact.email = newEmail;
+                    break;
+                default:
+                    console.log("Wrong Choice");
+                    break;
+                }
+            }
+        });
+        if(status == false){
+            console.log("Contact Not Found");
+        }
+}
+
 let options;
 do{
     console.log("Enter 1 to add Contact ");
     console.log("Enter 2 to Print AddressBook ");
+    confirm.log('Enter 3 to update contct ');
     console.log("Enter 13 to exit");
     options = Number(prompt('Enter option '));
     switch(options){
@@ -151,6 +207,9 @@ do{
             break;
         case 2:
             printAddressBook();
+            break;
+        case 3:
+            updateContact();
             break;
         default:
             break; 
