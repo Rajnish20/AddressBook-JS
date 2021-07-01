@@ -217,6 +217,11 @@ function getCount(){
    console.log(addressBookArr.reduce(count, 0));
 }
 
+function getPersonInCity(){
+    const city = prompt('Enter city ');
+    console.log(addressBookArr.filter(contact => contact.city == city));
+}
+
 
 let options;
 do{
@@ -225,6 +230,7 @@ do{
     console.log("Enter 3 to update contc");
     console.log("Enter 4 to delete contact");
     console.log("Enter 5 to get number of contacts");
+    console.log("Enter 6 to see contacts in particular city");
     console.log("Enter 13 to exit");
     options = Number(prompt('Enter option '));
     switch(options){
@@ -242,6 +248,9 @@ do{
             break;
         case 5:
             getCount();
+            break;
+        case 6:
+            getPersonInCity();
             break;
         default:
             break; 
