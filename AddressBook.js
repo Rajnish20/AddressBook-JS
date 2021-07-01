@@ -241,6 +241,10 @@ function sortByName(){
     console.log(addressBookArr.sort((contact1,contact2) => contact1.firstName.toLowerCase().localeCompare(contact2.firstName.toLowerCase())));
 }
 
+function sortByCity(){
+    console.log(addressBookArr.sort((contact1,contact2) => contact1.city.toLowerCase().localeCompare(contact2.city.toLowerCase())));
+}
+
 let options;
 do{
     console.log("Enter 1 to add Contact ");
@@ -253,6 +257,7 @@ do{
     console.log("Enter 8 to get number of contacts in particular city");
     console.log("Enter 9 to get number of contacts in particular state");
     console.log("Enter 10 to sort address book by contact's firstnames");
+    console.log("Enter 11 to sort address book by cities");
     console.log("Enter 13 to exit");
     options = Number(prompt('Enter option '));
     switch(options){
@@ -285,6 +290,9 @@ do{
             break;
         case 10:
             sortByName();
+            break;
+        case 11:
+            sortByCity();
             break;
         default:
             break; 
