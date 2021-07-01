@@ -194,11 +194,28 @@ function updateContact(){
         }
 }
 
+function deleteContact(){
+    let status = false;
+    const userInput = prompt('Enter FirstName ');
+    addressBookArr.forEach(addressbook => {
+        if(addressbook.firstName == userInput){
+            let index = addressBookArr.indexOf(addressbook);
+            addressBookArr.splice(index,1);
+            status = true;
+            console.log("Contact Deleted Successfully");
+        }
+    });
+    if(status == false){
+        console.log("Contact Not Found");
+    }
+}
+
 let options;
 do{
     console.log("Enter 1 to add Contact ");
     console.log("Enter 2 to Print AddressBook ");
-    confirm.log('Enter 3 to update contct ');
+    console.log("Enter 3 to update contc");
+    console.log("Enter 4 to delete contact");
     console.log("Enter 13 to exit");
     options = Number(prompt('Enter option '));
     switch(options){
@@ -210,6 +227,9 @@ do{
             break;
         case 3:
             updateContact();
+            break;
+        case 4:
+            deleteContact();
             break;
         default:
             break; 
